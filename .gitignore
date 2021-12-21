@@ -1,0 +1,12 @@
+.vs/
+DocumentManagerSystem/bin/
+DocumentManagerSystem/wwwroot/
+*.json
+*.dll
+*.pdb
+Test/DocumentLibrary.Application.Test/obj/
+Library/DocumentLibrary.MySql/obj/
+Library/DocumentLibrary.Application/obj/
+DocumentLibrary.Data/obj/
+DocumentManagerSystem/obj/
+DocumentManagerSystem/pack/node_modules/
