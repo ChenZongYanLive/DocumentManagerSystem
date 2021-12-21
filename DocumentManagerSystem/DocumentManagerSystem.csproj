@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Library\DocumentLibrary.MySql\DocumentLibrary.MySql.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="pack" />
+    <Folder Include="wwwroot" />
+  </ItemGroup>
+
 </Project>
