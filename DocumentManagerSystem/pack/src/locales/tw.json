@@ -1,0 +1,19 @@
+{
+    "DocumentName":"文件名稱",
+    "DocumentType":"文件階層",
+    "DocumentNumber":"文件編號",
+    "DocumentVersion":"版號",
+    "DocumentOwner":"權責人員",
+    "EffectiveDate":"上版日期",
+    "DocumentYearMonth":"資料年月",
+    "DocumentCount":"文件件數",
+    "DocumentPageCount":"文件頁數",
+    "account":"帳號",
+    "password":"密碼",
+    "AccountName":"帳號名稱",
+    "Role":"權限",
+    "Password":"密碼",
+    "InvalidDate":"作廢日期",
+    "ExportDate":"匯出日期"
+
+}

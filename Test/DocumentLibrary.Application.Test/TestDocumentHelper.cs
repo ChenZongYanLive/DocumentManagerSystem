@@ -28,9 +28,9 @@ namespace DocumentLibrary.Application.Test
             
             await documentDbHelper.AddAsync(document, cancellationToken);
 
-            var documentHelper = new StageDocumentHelper(documentDbHelper);
+            //var documentHelper = new StageDocumentHelper(documentDbHelper);
 
-            await documentHelper.AddDocumentAsync(document,cancellationToken);
+            //await documentHelper.AddDocumentAsync(document,cancellationToken);
 
             //Assert.IsTrue(result);
         }
