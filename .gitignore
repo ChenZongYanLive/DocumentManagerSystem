@@ -1,7 +1,6 @@
 .vs/
 DocumentManagerSystem/bin/
 DocumentManagerSystem/wwwroot/
-*.json
 *.dll
 *.pdb
 Test/DocumentLibrary.Application.Test/obj/
@@ -10,3 +9,7 @@ Library/DocumentLibrary.Application/obj/
 DocumentLibrary.Data/obj/
 DocumentManagerSystem/obj/
 DocumentManagerSystem/pack/node_modules/
+DocumentLibrary.Data/bin/
+Library/DocumentLibrary.Application/bin/
+Library/DocumentLibrary.MySql/bin/
+Test/DocumentLibrary.Application.Test/bin/
