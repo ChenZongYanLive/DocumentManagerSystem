@@ -13,7 +13,7 @@ namespace DocumentLibrary.Application.DBHelper.MySql
     {
         private readonly DocumentDbContext _documentDbContext;
 
-        private DocumentVersionHistoryDbHelper(DocumentDbContext documentDbContext)
+        public DocumentVersionHistoryDbHelper(DocumentDbContext documentDbContext)
         {
             _documentDbContext = documentDbContext;
         }

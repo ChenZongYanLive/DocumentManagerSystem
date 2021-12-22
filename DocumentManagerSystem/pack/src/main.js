@@ -1,31 +1,69 @@
-/*!
+import '@babel/polyfill'
+import Vue from 'vue'
+import vuetify from './plugins/vuetify'
+import i18n from './i18n'
+import { ValidationProvider, ValidationObserver, localize, extend } from 'vee-validate'
+import { required } from 'vee-validate/dist/rules'
+import tw from 'vee-validate/dist/locale/zh_TW.json'
+import en from 'vee-validate/dist/locale/en.json'
+import twVeeValidateDic from './locales/tw.json'
+import enVeeValidateDic from './locales/en.json'
+import App from './App.vue'
+import router from './router'
+import store from '../store/store'
+import jquery from 'jquery'
+import moment from 'moment'
+import { isRoleOk } from './js/http/identity/IdentityRole'
+import identity from './js/http/identity/Identity'
+import { HttpManager } from './js/http/http-Manager'
 
-=========================================================
-* BootstrapVue Argon Dashboard PRO - v1.1.0
-=========================================================
+window.$ = jquery
+window.jQuery = jquery
 
-* Product Page: https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard-pro
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Vue.config.devtools = false
+Vue.config.productionTip = false
+Vue.prototype.$moment = moment
+Vue.prototype.$isRoleOk = isRoleOk
+Vue.prototype.$identity = identity
 
-* Coded by www.creative-tim.com
+HttpManager.Init()
 
-=========================================================
+// Install required rule.
+extend('required', required)
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+localize({
+  en: {
+    messages: en.messages,
+    names: enVeeValidateDic
+  },
+  tw: {
+    messages: tw.messages,
+    names: twVeeValidateDic
+  }
+})
 
-*/
-import Vue from 'vue';
-import DashboardPlugin from './plugins/dashboard-plugin';
-import App from './App.vue';
+Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('ValidationObserver', ValidationObserver)
 
-// router setup
-import router from './routes/router';
-// plugin setup
-Vue.use(DashboardPlugin);
+let LOCALE = 'tw'
+localize(LOCALE)
 
-/* eslint-disable no-new */
+// A simple get/set interface to manage our locale in components.
+// This is not reactive, so don't create any computed properties/watchers off it.
+Object.defineProperty(Vue.prototype, 'locale', {
+  get () {
+    return LOCALE
+  },
+  set (val) {
+    LOCALE = val
+    localize(val)
+  }
+})
+
 new Vue({
-  el: '#app',
-  render: h => h(App),
-  router
-});
+  router,
+  store,
+  i18n,
+  vuetify,
+  render: h => h(App)
+}).$mount('#app')
