@@ -2,15 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import i18n from './i18n'
 import store from '../store/store'
-
 import StageDocumentManagement from './views/StageDocumentManagement.vue'
-import DocumentRecordManagement from './views/DocumentRecordManagement.vue'
-import StageDocumentSearch from './views/StageDocumentSearch.vue'
-import AccountManager from './views/AccountManager.vue'
-import DocumentRecordSearch from './views/DocumentRecordSearch.vue'
 import login from './views/Login.vue'
-import DocumentLibrary from './views/DocumentLibrary.vue'
-import OtherDocumentManagement from './views/OtherDocumentManagement.vue'
 
 Vue.use(Router)
 
@@ -18,6 +11,7 @@ const router = new Router({
   mode: process.env.CORDOVA_PLATFORM ? 'hash' : 'history',
   base: process.env.BASE_URL,
   routes: [
+    /*
     {
       path: '/StageDocumentSearch',
       name: 'StageDocumentSearch',
@@ -72,18 +66,6 @@ const router = new Router({
       }
     },
     {
-      path: '/login',
-      name: 'login',
-      components: {
-        default: StageDocumentSearch,
-        login: login
-      },
-      meta: {
-        title: i18n.t('login'),
-        permission: null
-      }
-    },
-    {
       path: '/DocumentLibrary',
       name: 'DocumentLibrary',
       components: {
@@ -104,6 +86,39 @@ const router = new Router({
         title: i18n.t('機關外來文件'),
         permission: null
       }
+    },
+    */
+    {
+      path: '/StageDocumentSearch',
+      name: 'StageDocumentSearch',
+      alias: '/',
+      components: {
+        // default: StageDocumentSearch
+      },
+      meta: {
+        title: i18n.t('L1 ~ L4 文件查詢')
+      }
+    },
+    {
+      path: '/StageDocumentManagement',
+      name: 'StageDocumentManagement',
+      components: {
+        default: StageDocumentManagement
+      },
+      meta: {
+        title: i18n.t('L1 ~ L4 文件管理')
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      components: {
+        login: login
+      },
+      meta: {
+        title: i18n.t('登入'),
+        permission: null
+      }
     }
   ]
 })
@@ -115,7 +130,8 @@ router.beforeEach((to, from, next) => {
   if (!identity) {
     store.commit('setLoginStatus', false)
     if (to.path !== '/login') {
-      return next({ path: '/login' })
+      // return next({ path: '/login' })
+      next()
     } else {
       next()
     }

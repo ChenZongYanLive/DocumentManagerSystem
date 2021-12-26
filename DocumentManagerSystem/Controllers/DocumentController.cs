@@ -28,7 +28,6 @@ namespace DocumentManagerSystem.Controllers
         }
 
         [HttpGet("Data")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult GetData()
         {
@@ -49,7 +48,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("AddDocument")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddDocument([FromForm] AddDocumentFileDto addDocumentFileDto,CancellationToken cancellationToken)
@@ -94,7 +92,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("SetDocument")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> SetDocument([FromForm] SetDocumentFileDto setDocumentFileDto,CancellationToken cancellationToken)
@@ -136,7 +133,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet("PublishDocument/{id}")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PublishDocument(int id,CancellationToken cancellationToken)
         {
@@ -152,7 +148,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpGet("UnPublishDocument/{id}")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> UnPublishDocument(int id,CancellationToken cancellationToken)
         {
@@ -168,7 +163,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("ChangeDocumentVersion")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> ChangeDocumentVersion([FromForm] ChangeDocumentVersionDto changeDocumentVersionDto, CancellationToken cancellationToken)
         {
@@ -184,7 +178,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("Invalid")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Invalid([FromForm] InvalidDocumentDto invalidDocumentDto, CancellationToken cancellationToken)
         {
@@ -200,7 +193,6 @@ namespace DocumentManagerSystem.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         [HttpPost("CancelVoid")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CancelVoid([FromForm] CancelVoidDocumentDto cancelVoidDocumentDto, CancellationToken cancellationToken)
         {
@@ -210,7 +202,6 @@ namespace DocumentManagerSystem.Controllers
         }
 
         [HttpGet("DeleteDocument/{id}")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteDocument(int id, CancellationToken cancellationToken)
         {

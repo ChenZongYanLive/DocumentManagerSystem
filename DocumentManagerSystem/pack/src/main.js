@@ -16,6 +16,7 @@ import moment from 'moment'
 import { isRoleOk } from './js/http/identity/IdentityRole'
 import identity from './js/http/identity/Identity'
 import { HttpManager } from './js/http/http-Manager'
+import './plugins/app'
 
 window.$ = jquery
 window.jQuery = jquery

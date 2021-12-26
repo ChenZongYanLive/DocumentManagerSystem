@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="pack" />
     <Folder Include="wwwroot" />
   </ItemGroup>
 
